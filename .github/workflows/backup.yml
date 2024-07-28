@@ -1,0 +1,59 @@
+name: Backup Fork
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # 每週日午夜運行一次
+  workflow_dispatch:  # 允許手動觸發
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # 獲取所有歷史記錄和標籤
+
+      - name: List all branches
+        id: list_branches
+        run: |
+          git fetch --all
+          git branch -r | grep -v '\->' | grep 'upstream/' | sed 's/upstream\///' > branches.txt
+          echo "branches=$(cat branches.txt | tr '\n' ' ')" >> $GITHUB_OUTPUT
+
+      - name: Add upstream repository
+        run: |
+          git remote add upstream https://github.com/nextfoam/nextfoam-cfd.git
+          git fetch upstream
+
+      - name: Backup each branch
+        run: |
+          for branch in $(echo "${{ steps.list_branches.outputs.branches }}"); do
+            git checkout $branch || git checkout -b $branch upstream/$branch
+            git merge upstream/$branch || echo "No changes to merge or merge conflict"
+            git push --tags backup $branch || echo "Failed to push $branch to backup repository"
+          done
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+
+      - name: Create version tag
+        run: |
+          TIMESTAMP=$(date +"%Y%m%d%H%M%S")
+          git tag -a "backup-$TIMESTAMP" -m "Backup on $TIMESTAMP"
+
+      - name: Push changes and tags to backup
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          git remote add backup https://$GH_TOKEN@github.com/LostSunset/nextfoam-cfd.git
+          git push backup --tags || echo "Failed to push tags to backup repository"
+
+      - name: Check for errors
+        if: failure()
+        run: |
+          echo "Workflow failed. Please check the logs for more information."
