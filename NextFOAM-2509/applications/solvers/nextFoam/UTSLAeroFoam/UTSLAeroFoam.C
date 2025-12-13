@@ -96,7 +96,7 @@ int main(int argc, char *argv[])
         if (mesh.moving())
         {
             faceContrVg = fvc::meshPhi(U)/mesh.magSf();
-            Info << faceContrVg << nl << endl;
+            // Info << faceContrVg << nl << endl;
         }
 
         Info<< "Time = " << runTime.timeName() << nl << endl;
