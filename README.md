@@ -9,8 +9,6 @@ NextFOAM is free software: you can redistribute it and/or modify it under the te
 - An unsteady density-based compressible solver **UTSLAeroFOAM** with the sliding mesh functionality.
 - Density-based steady compressible solver **TSLAeroFoam**
 
-## Features than OpenFOAM released by OpenCFD
-- Fully compatible with OpenFOAM-v2412
 - added fluent mesh(.cas/.msh) conversion utility 'fluentToFoam' to convert to multi-region meshes
 - Porosity effect to energy equation for fluid is added
 - Fickian/dilute approximation for mass diffusion is available
