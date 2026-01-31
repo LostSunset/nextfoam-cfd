@@ -1,0 +1,3 @@
+kinematicParcelBuoyantSimpleNFoam.C
+
+EXE = $(FOAM_APPBIN)/kinematicParcelBuoyantSimpleNFoam

@@ -1,0 +1,3 @@
+thermoParcelBuoyantSimpleNFoam.C
+
+EXE = $(FOAM_APPBIN)/thermoParcelBuoyantSimpleNFoam

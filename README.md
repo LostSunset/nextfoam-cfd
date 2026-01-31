@@ -1,12 +1,13 @@
 ## About NextFOAM-cfd solver
-NextFOAM-cfd solver is a free, open source computational fluid dynamics (CFD) software package released by [NEXTfoam](https://nextfoam.co.kr/foam-Introen.php) based on OpenFOAM released by OpenCFD.
+NextFOAM-cfd solver is a free, open source computational fluid dynamics (CFD) software package released by [NEXTfoam](https://nextfoam.co.kr/en/) based on [OpenFOAM](https://www.openfoam.com/) released by OpenCFD.
 
 ## Copyright
 NextFOAM is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. See the file COPYING in this directory or http://www.gnu.org/licenses/, for a description of the GNU General Public License terms under which you can copy the files.
 
-## NextFOAM-2509 features than OpenFOAM v2412 released by OpenCFD
-- Solver for BARAM-25.3.0 (https://baramcfd.org) 
-- UTSLAeroFOAM, an unsteady density-based compressible solver, includes support for sliding mesh functionality.
+## Features of NextFOAM-2602 compared to OpenFOAM v2412 released by OpenCFD
+- Solver for [BARAM-26.1.1](https://baramcfd.org/en/home-en/) 
+- An unsteady density-based compressible solver **UTSLAeroFOAM** with the sliding mesh functionality.
+- Density-based steady compressible solver **TSLAeroFoam**
 
 ## Features than OpenFOAM released by OpenCFD
 - Fully compatible with OpenFOAM-v2412
@@ -14,7 +15,6 @@ NextFOAM is free software: you can redistribute it and/or modify it under the te
 - Porosity effect to energy equation for fluid is added
 - Fickian/dilute approximation for mass diffusion is available
 - Switch for solving species equations is added
-- Density based compressible solver **TSLAeroFoam** is added
 - Improvement of pressure-velocity coupling
 - Improvement of velocity & density interpolation
 - Improvement of under-relaxation factor dependency of navier-stokes equation
@@ -27,17 +27,18 @@ NextFOAM is free software: you can redistribute it and/or modify it under the te
 
 ## Download and Installation instructions on Ubuntu Linux
 
-NextFOAM-cfd top directory is set as `/opt/OpenFOAM` for all users. Installation directories are followings:
+Top directory of NextFOAM-cfd is set as `/opt/OpenFOAM` for all users. Installation directories are followings:
 
 | application | directory |
 | --- | --- |
-| NextFOAM-2509 | /opt/OpenFOAM/NextFOAM-2509 |
-| ThirdParty-2509 | /opt/OpenFOAM/ThirdParty-2509 |
+| NextFOAM-2602 | /opt/OpenFOAM/NextFOAM-2602 |
+| ThirdParty-2602 | /opt/OpenFOAM/ThirdParty-2602 |
 
-Install required packages for building NextFOAM-2509 in the Ubuntu Linux. Run commands as root:
+Install required packages for building NextFOAM-cfd in the Ubuntu Linux. Run commands as root:
 
 ```
 apt-get -y update
+apt -y upgrade
 apt-get install -y build-essential flex zlib1g-dev libgmp-dev libmpfr-dev texinfo cmake
 ```
 
@@ -48,47 +49,40 @@ tar zxf openmpi-4.0.5.tar.gz
 rm openmpi-4.0.5.tar.gz
 cd openmpi-4.0.5
 ./configure --prefix=/opt/openmpi-4.0.5
-make -j 4 all
+make -j all
 make install
 echo 'export PATH=$PATH:/opt/openmpi-4.0.5/bin' >> /etc/bash.bashrc
 ```
+
 Clone `nextfoam-cfd` and move to the top directory
 
 ```
 mkdir -p /opt/OpenFOAM
 git clone https://github.com/nextfoam/nextfoam-cfd.git
-mv nextfoam-cfd/NextFOAM-2509 /opt/OpenFOAM
-mv nextfoam-cfd/ThirdParty-2509 /opt/OpenFOAM
+mv nextfoam-cfd/NextFOAM-2602 /opt/OpenFOAM
+mv nextfoam-cfd/ThirdParty-2602 /opt/OpenFOAM
 ```
 
-Setup the environment variables in the `/opt/OpenFOAM/NextFOAM-2509/etc/bashrc`
+Setup the environment variables in the `/opt/OpenFOAM/NextFOAM-2602/etc/bashrc`
 ```
-vi /opt/OpenFOAM/NextFOAM-2509/etc/bashrc
+vi /opt/OpenFOAM/NextFOAM-2602/etc/bashrc
 
-export WM_PROJECT_VERSION=2509
+export WM_PROJECT_VERSION=2602
 projectDir="/opt/OpenFOAM/NextFOAM-$WM_PROJECT_VERSION"
 ```
 
-Compile NextFOAM-2509.
-
-**(Note)** If you install NextFOAM-2509 on Ubuntu 22.04, you should install `gcc-9` and `g++-9` and set `gcc-9` as the compiler. 
+Compile NextFOAM-2602.
 
 ```
-apt install gcc-9 g++-9
-export WM_COMPILE_CONTROL="version=9"
-echo 'export WM_COMPILE_CONTROL="version=9"' >> /etc/bash.bashrc
-```
-
-```
-source /opt/OpenFOAM/NextFOAM-2509/etc/bashrc
-cd /opt/OpenFOAM/NextFOAM-2509
+source /opt/OpenFOAM/NextFOAM-2602/etc/bashrc
+cd /opt/OpenFOAM/NextFOAM-2602
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$WM_THIRD_PARTY_DIR/platforms/linux64Gcc/fftw-3.3.10/lib
 ./Allwmake -j
 ```
 
 Enable the environment variables at start time
 ```
-echo 'source /opt/OpenFOAM/NextFOAM-2509/etc/bashrc' >> /etc/bash.bashrc
+echo 'source /opt/OpenFOAM/NextFOAM-2602/etc/bashrc' >> /etc/bash.bashrc
 ```
 
 ## Contact to NEXTfoam

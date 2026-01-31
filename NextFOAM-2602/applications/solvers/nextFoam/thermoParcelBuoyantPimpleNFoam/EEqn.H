@@ -1,0 +1,1 @@
+../thermoParcelBuoyantSimpleNFoam/EEqn.H
