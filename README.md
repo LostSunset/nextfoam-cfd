@@ -4,7 +4,7 @@ NextFOAM-cfd solver is a free, open source computational fluid dynamics (CFD) so
 ## Copyright
 NextFOAM is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. See the file COPYING in this directory or http://www.gnu.org/licenses/, for a description of the GNU General Public License terms under which you can copy the files.
 
-## Features of NextFOAM-2602 compared to OpenFOAM v2412 released by OpenCFD
+## Features of NextFOAM-2602 compared to OpenCFD OpenFOAM v2412
 - Solver for [BARAM-26.1.1](https://baramcfd.org/en/home-en/) 
 - An unsteady density-based compressible solver **UTSLAeroFOAM** with the sliding mesh functionality.
 - Density-based steady compressible solver **TSLAeroFoam**
