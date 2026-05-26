@@ -1,3 +1,0 @@
-kinematicParcelBuoyantPimpleNFoam.C
-
-EXE = $(FOAM_APPBIN)/kinematicParcelBuoyantPimpleNFoam

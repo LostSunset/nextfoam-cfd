@@ -1,3 +1,0 @@
-thermoParcelBuoyantPimpleNFoam.C
-
-EXE = $(FOAM_APPBIN)/thermoParcelBuoyantPimpleNFoam

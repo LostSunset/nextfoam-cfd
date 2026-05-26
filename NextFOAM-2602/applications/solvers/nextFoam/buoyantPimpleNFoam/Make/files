@@ -1,3 +1,0 @@
-buoyantPimpleNFoam.C
-
-EXE = $(FOAM_APPBIN)/buoyantPimpleNFoam

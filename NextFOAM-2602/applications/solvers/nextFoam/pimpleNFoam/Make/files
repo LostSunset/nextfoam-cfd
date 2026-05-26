@@ -1,3 +1,0 @@
-pimpleNFoam.C
-
-EXE = $(FOAM_APPBIN)/pimpleNFoam

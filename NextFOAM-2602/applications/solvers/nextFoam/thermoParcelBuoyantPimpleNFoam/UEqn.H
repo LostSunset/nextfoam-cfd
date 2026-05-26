@@ -1,1 +1,0 @@
-../thermoParcelBuoyantSimpleNFoam/UEqn.H

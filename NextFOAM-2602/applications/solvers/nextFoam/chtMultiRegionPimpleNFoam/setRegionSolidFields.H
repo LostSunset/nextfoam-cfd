@@ -1,1 +1,0 @@
-../chtMultiRegionSimpleNFoam/setRegionSolidFields.H

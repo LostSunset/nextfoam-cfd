@@ -1,3 +1,0 @@
-buoyantSimpleNFoam.C
-
-EXE = $(FOAM_APPBIN)/buoyantSimpleNFoam

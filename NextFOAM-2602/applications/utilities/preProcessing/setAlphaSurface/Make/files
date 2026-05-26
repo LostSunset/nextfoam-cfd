@@ -1,3 +1,0 @@
-setAlphaSurface.C
-
-EXE = $(FOAM_APPBIN)/setAlphaSurface

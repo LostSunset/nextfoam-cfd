@@ -1,1 +1,0 @@
-../simpleNFoam/initPhi.H

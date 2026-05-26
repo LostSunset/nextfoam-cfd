@@ -4,8 +4,8 @@ NextFOAM-cfd solver is a free, open source computational fluid dynamics (CFD) so
 ## Copyright
 NextFOAM is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. See the file COPYING in this directory or http://www.gnu.org/licenses/, for a description of the GNU General Public License terms under which you can copy the files.
 
-## Features of NextFOAM-2602 compared to OpenCFD OpenFOAM v2412
-- Solver for [BARAM-26.1.1](https://baramcfd.org/en/home-en/) 
+## Features of NextFOAM-2606 compared to OpenCFD OpenFOAM v2412
+- Solver for [BARAM-26.2.1](https://baramcfd.org/en/home-en/) 
 - An unsteady density-based compressible solver **UTSLAeroFOAM** with the sliding mesh functionality.
 - Density-based steady compressible solver **TSLAeroFoam**
 
@@ -29,8 +29,8 @@ Top directory of NextFOAM-cfd is set as `/opt/OpenFOAM` for all users. Installat
 
 | application | directory |
 | --- | --- |
-| NextFOAM-2602 | /opt/OpenFOAM/NextFOAM-2602 |
-| ThirdParty-2602 | /opt/OpenFOAM/ThirdParty-2602 |
+| NextFOAM-2606 | /opt/OpenFOAM/NextFOAM-2606 |
+| ThirdParty-2606 | /opt/OpenFOAM/ThirdParty-2606 |
 
 Install required packages for building NextFOAM-cfd in the Ubuntu Linux. Run commands as root:
 
@@ -57,30 +57,30 @@ Clone `nextfoam-cfd` and move to the top directory
 ```
 mkdir -p /opt/OpenFOAM
 git clone https://github.com/nextfoam/nextfoam-cfd.git
-mv nextfoam-cfd/NextFOAM-2602 /opt/OpenFOAM
-mv nextfoam-cfd/ThirdParty-2602 /opt/OpenFOAM
+mv nextfoam-cfd/NextFOAM-2606 /opt/OpenFOAM
+mv nextfoam-cfd/ThirdParty-2606 /opt/OpenFOAM
 ```
 
-Setup the environment variables in the `/opt/OpenFOAM/NextFOAM-2602/etc/bashrc`
+Setup the environment variables in the `/opt/OpenFOAM/NextFOAM-2606/etc/bashrc`
 ```
-vi /opt/OpenFOAM/NextFOAM-2602/etc/bashrc
+vi /opt/OpenFOAM/NextFOAM-2606/etc/bashrc
 
-export WM_PROJECT_VERSION=2602
+export WM_PROJECT_VERSION=2606
 projectDir="/opt/OpenFOAM/NextFOAM-$WM_PROJECT_VERSION"
 ```
 
-Compile NextFOAM-2602.
+Compile NextFOAM-2606.
 
 ```
-source /opt/OpenFOAM/NextFOAM-2602/etc/bashrc
-cd /opt/OpenFOAM/NextFOAM-2602
+source /opt/OpenFOAM/NextFOAM-2606/etc/bashrc
+cd /opt/OpenFOAM/NextFOAM-2606
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$WM_THIRD_PARTY_DIR/platforms/linux64Gcc/fftw-3.3.10/lib
 ./Allwmake -j
 ```
 
 Enable the environment variables at start time
 ```
-echo 'source /opt/OpenFOAM/NextFOAM-2602/etc/bashrc' >> /etc/bash.bashrc
+echo 'source /opt/OpenFOAM/NextFOAM-2606/etc/bashrc' >> /etc/bash.bashrc
 ```
 
 ## Contact to NEXTfoam
