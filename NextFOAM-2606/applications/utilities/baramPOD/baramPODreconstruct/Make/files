@@ -1,0 +1,3 @@
+baramPODreconstruct.C
+
+EXE = $(FOAM_APPBIN)/baramPODreconstruct
